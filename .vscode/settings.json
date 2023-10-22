@@ -1,7 +1,8 @@
 {
     "java.project.sourcePaths": [
         "meu-primeiro-projeto-java/src",
+        "meu-primeiro-projeto-java",
         "java-anatomia-classe/src",
-        "meu-primeiro-projeto-java"
+        "01-Tipos e variáveis/src"
     ]
 }
