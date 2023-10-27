@@ -3,7 +3,8 @@
         "meu-primeiro-projeto-java/src",
         "meu-primeiro-projeto-java",
         "java-anatomia-classe/src",
+        "03-terminal_argumentos/java-terminal/src",
         "01-Tipos e variáveis/src",
-        "03-terminal_argumentos/java-terminal/src"
+        "05-Estrutura-excepcionais/estruturas-excepcionais/src"
     ]
 }
