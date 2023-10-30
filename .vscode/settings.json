@@ -1,10 +1,13 @@
 {
     "java.project.sourcePaths": [
+        "projeto-java/src",
         "meu-primeiro-projeto-java/src",
         "meu-primeiro-projeto-java",
         "java-anatomia-classe/src",
+        "06-POO",
+        "05-Estrutura-excepcionais/estruturas-excepcionais/src",
         "03-terminal_argumentos/java-terminal/src",
         "01-Tipos e variáveis/src",
-        "05-Estrutura-excepcionais/estruturas-excepcionais/src"
+        "07-Java-Swing/src"
     ]
 }
