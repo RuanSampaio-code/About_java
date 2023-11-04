@@ -27,7 +27,7 @@ public class Menu {
 
                 switch (opcao) {
                     case 1:
-                        System.out.println("1. Cadastrar Conta Corrente");
+                        System.out.println("==============Cadastrando Conta Corrente================");
                         
                         //numero da conta
                         System.out.println("Informe o numero da conta: ");
@@ -53,14 +53,41 @@ public class Menu {
                         Cliente cliente = new Cliente(nomeCliente);
                         Banco banco = new Banco(nomebanco);
 
-                        //instacia de banco
-                        ContaBancaria newConta = new ContaBancaria( numeroConta, agencia, saldo, cliente, banco);
+                        ContaBancaria newConta = new ContaCorrente( numeroConta, agencia, saldo, cliente, banco);
                         //contas.add(newConta);
                         gerencia.adicionarConta(newConta);
                        
                         break;
                     case 2:
+                         System.out.println("============Cadastrando Conta Poupança: =============");
+                        //numero da conta
+                        System.out.println("Informe o numero da conta: ");
+                        String numeroCP = input.next();
 
+                        //numero da agencia
+                        System.out.println("Informe a agencia: ");
+                        String agenciaCP = input.next();
+
+                        //saldo
+                        System.out.println("Informe o saldo que deseja depositar ");
+                        double saldoCP = input.nextDouble();
+
+                        //cliente
+                        System.out.println("Informe o nome do cliente ");
+                        String nomeClienteCP = input.next();
+
+                        //banco
+                        System.out.println("Informe o Banco ");
+                        String nomebancoCP = input.next();
+
+                        //chamando instacia de cliente e do banco
+                        Cliente clienteCP = new Cliente(nomeClienteCP);
+                        Banco bancoCP = new Banco(nomebancoCP);
+
+                        ContaBancaria newCP = new ContaPoupanca( numeroCP, agenciaCP, saldoCP, clienteCP, bancoCP);
+                        //contas.add(newConta);
+                        gerencia.adicionarConta(newCP);
+                       
                         System.out.println("2. Cadastrar Conta Poupança");
                         break;
                     case 3:

@@ -34,8 +34,8 @@ public class GerenciadorImplementa implements Gerenciador{
         System.out.println("Contas Bancárias cadastradas:");
         for (ContaBancaria conta : contas) {
             System.out.println("=======================================");
-            System.out.println("Agência: " + conta.getAgencia());
             System.out.println("Número conta: " + conta.getNumeroConta());
+            System.out.println("Agência: " + conta.getAgencia());
             System.out.println("Saldo: " + conta.getSaldo());
             System.out.println("Cliente: " + conta.getCliente().getNome() );
             System.out.println("Banco: " + conta.getBanco().getNome());
