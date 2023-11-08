@@ -3,35 +3,39 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CadastroContasGUI {
 
-    private ArrayList<String> contas = new ArrayList<String>();
+    private GerenciadorImplementa gerenciador; // Usando a implementação do Gerenciador
+    private List<String> contas = new ArrayList<String>();
 
     public CadastroContasGUI() {
-        JFrame frame = new JFrame("Cadastro de Contas Bancarias");
+        gerenciador = new GerenciadorImplementa();
+
+        JFrame frame = new JFrame("Cadastro de Contas");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000, 300);
+        frame.setSize(400, 300);
 
         JPanel panel = new JPanel();
         frame.add(panel);
 
-        panel.setLayout(new GridLayout(6, 1));
+        panel.setLayout(new FlowLayout());
+
+        // Tamanho personalizado para os botões
+        Dimension buttonSize = new Dimension(200, 30);
 
         JButton btnCadastrarCorrente = new JButton("1. Cadastrar Conta Corrente");
-        JButton btnCadastrarPoupanca = new JButton("2. Cadastrar Conta Poupança");
-        JButton btnListarContas = new JButton("3. Listar Contas");
-        JButton btnAlterarConta = new JButton("4. Alterar Conta");
-        JButton btnExcluirConta = new JButton("5. Excluir Conta");
-        JButton btnSair = new JButton("6. Sair");
-
-        // Altere o tamanho dos botões usando setPreferredSize ou setSize
-        Dimension buttonSize = new Dimension(20, 30);
         btnCadastrarCorrente.setPreferredSize(buttonSize);
+        JButton btnCadastrarPoupanca = new JButton("2. Cadastrar Conta Poupança");
         btnCadastrarPoupanca.setPreferredSize(buttonSize);
+        JButton btnListarContas = new JButton("3. Listar Contas");
         btnListarContas.setPreferredSize(buttonSize);
+        JButton btnAlterarConta = new JButton("4. Alterar Conta");
         btnAlterarConta.setPreferredSize(buttonSize);
+        JButton btnExcluirConta = new JButton("5. Excluir Conta");
         btnExcluirConta.setPreferredSize(buttonSize);
+        JButton btnSair = new JButton("6. Sair");
         btnSair.setPreferredSize(buttonSize);
 
         panel.add(btnCadastrarCorrente);
@@ -45,7 +49,10 @@ public class CadastroContasGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String conta = JOptionPane.showInputDialog("Digite os detalhes da Conta Corrente:");
-                contas.add("Conta Corrente: " + conta);
+                //Adciona tela que chame todos os atributos da conta correte em uma tela so
+                
+                // Aqui você pode chamar o método do gerenciador para adicionar a conta corrente
+                gerenciador.adicionarConta(new ContaCorrente(conta, conta, 0, null, null));
                 JOptionPane.showMessageDialog(null, "Conta Corrente cadastrada com sucesso!");
             }
         });
@@ -54,7 +61,10 @@ public class CadastroContasGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String conta = JOptionPane.showInputDialog("Digite os detalhes da Conta Poupança:");
-                contas.add("Conta Poupança: " + conta);
+                //Adciona tela que chame todos os atributos da conta correte em uma tela so
+
+                // Aqui você pode chamar o método do gerenciador para adicionar a conta poupança
+                gerenciador.adicionarConta(new ContaPoupanca(conta, conta, 0, null, null));
                 JOptionPane.showMessageDialog(null, "Conta Poupança cadastrada com sucesso!");
             }
         });
@@ -62,42 +72,26 @@ public class CadastroContasGUI {
         btnListarContas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                StringBuilder lista = new StringBuilder("Lista de Contas:\n");
-                for (String conta : contas) {
-                    lista.append(conta).append("\n");
-                }
-                JOptionPane.showMessageDialog(null, lista.toString());
+                // Aqui você pode chamar o método do gerenciador para listar as contas
+                gerenciador.lerContas();
             }
         });
 
         btnAlterarConta.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String contaAntiga = JOptionPane.showInputDialog("Digite o nome da Conta que deseja alterar:");
-                for (int i = 0; i < contas.size(); i++) {
-                    if (contas.get(i).contains(contaAntiga)) {
-                        String novaConta = JOptionPane.showInputDialog("Digite os novos detalhes da Conta:");
-                        contas.set(i, contas.get(i).split(":")[0] + ": " + novaConta);
-                        JOptionPane.showMessageDialog(null, "Conta alterada com sucesso!");
-                        return;
-                    }
-                }
-                JOptionPane.showMessageDialog(null, "Conta não encontrada!");
+                String contaAntiga = JOptionPane.showInputDialog("Digite o número da Conta que deseja alterar:");
+                // Aqui você pode chamar o método do gerenciador para alterar a conta
+                gerenciador.alterarConta(contaAntiga, new ContaBancaria(contaAntiga, contaAntiga, 0, null, null)); // Preencha com os dados corretos
             }
         });
 
         btnExcluirConta.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String conta = JOptionPane.showInputDialog("Digite o nome da Conta que deseja excluir:");
-                for (int i = 0; i < contas.size(); i++) {
-                    if (contas.get(i).contains(conta)) {
-                        contas.remove(i);
-                        JOptionPane.showMessageDialog(null, "Conta excluída com sucesso!");
-                        return;
-                    }
-                }
-                JOptionPane.showMessageDialog(null, "Conta não encontrada!");
+                String conta = JOptionPane.showInputDialog("Digite o número da Conta que deseja excluir:");
+                // Aqui você pode chamar o método do gerenciador para excluir a conta
+                gerenciador.removerConta(conta);
             }
         });
 
