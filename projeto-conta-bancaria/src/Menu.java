@@ -59,7 +59,7 @@ public class Menu {
                        
                         break;
                     case 2:
-                         System.out.println("============Cadastrando Conta Poupança: =============");
+                        System.out.println("============Cadastrando Conta Poupança: =============");
                         //numero da conta
                         System.out.println("Informe o numero da conta: ");
                         String numeroCP = input.next();
@@ -91,8 +91,12 @@ public class Menu {
                         System.out.println("2. Cadastrar Conta Poupança");
                         break;
                     case 3:
+                        
 
                         System.out.println("3. Listar Contas");
+                        gerencia.quantidadeContas();
+
+                        
                         gerencia.lerContas();
                         break;
 
@@ -157,4 +161,5 @@ public class Menu {
         }
         
     }
+
 }

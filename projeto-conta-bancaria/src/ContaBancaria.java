@@ -90,4 +90,10 @@ class ContaBancaria implements Gerenciador {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'alterarConta'");
     }
+
+    @Override
+    public void quantidadeContas() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'quantidadeConta'");
+    }
 }

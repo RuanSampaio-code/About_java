@@ -56,5 +56,14 @@ public class GerenciadorImplementa implements Gerenciador{
         }
         System.out.println("Conta não encontrada para deleção.");
     }
+
+    @Override
+    public void quantidadeContas() {
+        if (contas.isEmpty()) {
+            System.out.println("Não há registros a serem mostrados.");
+        } 
+            
+        
+    }
     
 }
